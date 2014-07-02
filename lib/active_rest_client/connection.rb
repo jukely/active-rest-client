@@ -51,6 +51,15 @@ module ActiveRestClient
       end
     end
 
+    def patch(path, data, headers={})
+      make_safe_request(path) do
+        @session.patch(path) do |req|
+          req.headers = req.headers.merge(headers)
+          req.body = data
+        end
+      end
+    end
+
     def post(path, data, headers={})
       make_safe_request(path) do
         @session.post(path) do |req|

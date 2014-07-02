@@ -239,6 +239,8 @@ module ActiveRestClient
         response = connection.get(@url, http_headers)
       when :put
         response = connection.put(@url, @body, http_headers)
+      when :patch
+        response = connection.patch(@url, @body, http_headers)
       when :post
         response = connection.post(@url, @body, http_headers)
       when :delete
